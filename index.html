@@ -5,81 +5,90 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Ka Hyun Park — Graph machine learning researcher, SNU DataLab.">
 <title>Ka Hyun Park @ SNU</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root{--ink:#1a1a1a;--muted:#6b6b6b;--faint:#999;--link:#1155cc;
-    --rule:#e6e6e6;--bg:#ffffff;--accent:#9a2a2a;--maxw:760px}
+  :root{
+    --ink:#18181b;--c600:#52525b;--c500:#71717a;--c400:#a1a1aa;
+    --line:#e4e4e7;--hover:#f4f4f5;--link:#2563eb;--accent:#2563eb;--journal:#1f7a52;--bg:#fff;--maxw:760px}
   *{box-sizing:border-box}
   html{-webkit-text-size-adjust:100%}
   body{margin:0;background:var(--bg);color:var(--ink);
-    font-family:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,sans-serif;
-    font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:56px 24px 96px}
+    font-family:-apple-system,system-ui,"Inter","Segoe UI","Helvetica Neue",Arial,sans-serif;
+    font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:54px 24px 96px}
   a{color:var(--link);text-decoration:none}
   a:hover{text-decoration:underline}
-  header{display:flex;gap:28px;align-items:flex-start;margin-bottom:8px}
-  .photo{flex:0 0 auto;width:135px;height:135px;border-radius:4px;
-    object-fit:cover;object-position:center 28%;background:#f0f0f0;border:1px solid var(--rule)}
+
+  header{display:flex;gap:28px;align-items:center;margin-bottom:22px}
+  .photo{flex:0 0 auto;width:130px;height:130px;border-radius:50%;
+    object-fit:cover;object-position:center 28%;background:#f0f0f0}
   .head-text{flex:1 1 auto;min-width:0}
-  h1{font-size:30px;font-weight:700;letter-spacing:-0.01em;margin:2px 0 4px}
-  .title{font-size:16px;color:var(--muted);margin:0 0 12px}
-  .links{font-size:14.5px;color:var(--muted)}
-  .links a{color:var(--link);white-space:nowrap}
-  .links .sep{color:var(--faint);margin:0 6px}
-  nav{margin:26px 0 8px;padding:10px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);
-    font-size:14.5px;font-family:"IBM Plex Sans",-apple-system,sans-serif}
-  nav a{color:var(--ink);margin-right:16px;font-weight:500}
-  nav a:hover{color:var(--link)}
-  .intro p{margin:18px 0}
-  section{margin-top:46px}
-  h2{font-size:22px;font-weight:700;margin:0 0 18px;padding-bottom:6px;border-bottom:2px solid var(--ink);
-    font-family:"IBM Plex Sans",-apple-system,sans-serif;letter-spacing:-0.01em}
-  .tl{display:flex;margin:0 0 20px}
-  .tl .when{flex:0 0 165px;color:var(--muted);font-size:14.5px;padding-top:2px;
-    font-family:"IBM Plex Sans",-apple-system,sans-serif}
-  .tl .what{flex:1 1 auto}
-  .tl .org{font-weight:600}
-  .tl .role{color:var(--muted);font-size:15px;line-height:1.5}
-  .rblock{margin:0 0 22px}
-  .rhead{font-weight:700;font-size:16px;margin-bottom:6px;
-    font-family:"IBM Plex Sans",-apple-system,sans-serif}
-  .rblock ul{margin:0;padding-left:20px}
-  .rblock li{margin:5px 0;font-size:15.5px}
-  .rblock li .m{font-weight:700;color:var(--accent)}
-  .grant{font-size:13.5px;color:var(--faint);margin-top:14px;font-style:italic}
-  .pubnote{font-size:14.5px;color:var(--muted);margin:-6px 0 18px}
-  .pubnote code{background:#f3f3f3;padding:0 4px;border-radius:3px;font-size:13px}
-  .year{font-size:15px;font-weight:700;color:var(--accent);margin:30px 0 14px;
-    font-family:"IBM Plex Sans",-apple-system,sans-serif;letter-spacing:0.02em}
-  .pub{margin:0 0 22px;padding-left:2px}
-  .pub .ptitle{font-weight:600;line-height:1.45}
-  .pub .pauthors{font-size:15px;color:#333;margin-top:2px}
-  .pub .pauthors .me{font-weight:700}
-  .pub .pvenue{font-size:14.5px;color:var(--muted);font-style:italic;margin-top:1px}
-  .pub .plinks{font-size:14px;margin-top:4px;color:var(--faint)}
-  .pub .plinks a{margin:0 1px;cursor:pointer}
-  .bibbox{display:none;white-space:pre-wrap;background:#f7f7f7;border:1px solid var(--rule);
-    border-radius:4px;padding:10px 12px;margin-top:6px;
-    font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12.5px;line-height:1.5;color:#333;overflow-x:auto}
-  .patgroup{font-weight:700;font-size:14px;color:var(--muted);margin:18px 0 10px;
-    font-family:"IBM Plex Sans",-apple-system,sans-serif;letter-spacing:0.03em;text-transform:uppercase}
-  .pat{margin:0 0 12px}
-  .pat .pt{font-weight:600;font-size:15.5px;line-height:1.4}
-  .pat .pd{font-size:14px;color:var(--muted);margin-top:1px}
-  .simple{margin:0 0 14px}
-  .simple .st{font-weight:600;line-height:1.4}
-  .simple .sd{font-size:14.5px;color:var(--muted);margin-top:1px}
-  footer{margin-top:64px;padding-top:16px;border-top:1px solid var(--rule);
-    font-size:13px;color:var(--faint);text-align:center;
-    font-family:"IBM Plex Sans",-apple-system,sans-serif}
+  h1{font-size:32px;font-weight:700;letter-spacing:-0.02em;margin:0 0 6px;color:var(--ink)}
+  .title{font-size:16px;color:var(--c500);margin:0 0 13px}
+  .title a{color:var(--c500);text-decoration:underline;text-decoration-color:#d4d4d8}
+  .pills{display:flex;flex-wrap:wrap;gap:8px}
+  .pills a{font-size:14px;color:var(--c500);border:1px solid var(--line);border-radius:999px;
+    padding:4px 12px;background:none}
+  .pills a:hover{background:var(--hover);text-decoration:none;color:var(--ink)}
+
+  nav{margin:24px 0 6px;padding:11px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:14px}
+  nav a{color:var(--c500);margin-right:18px}
+  nav a:hover{color:var(--ink);text-decoration:none}
+
+  .intro{margin:22px 0 8px}
+  .intro p{margin:14px 0}
+
+  section{margin-top:40px}
+  h2{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.09em;
+    color:var(--c400);margin:0 0 18px;padding-bottom:9px;border-bottom:1px solid var(--line)}
+
+  .grp{display:flex;gap:22px;margin:0 0 22px}
+  .grp:last-child{margin-bottom:0}
+  .grp .yr{flex:0 0 122px;color:var(--c400);font-size:14px;padding-top:1px;font-variant-numeric:tabular-nums}
+  .grp .content{flex:1 1 auto;min-width:0}
+  .org{font-weight:600;font-size:16px;color:var(--ink)}
+  .role{color:var(--c500);font-size:15px;line-height:1.5;margin-top:1px}
+  .role a{color:var(--link)}
+
+  .rblock{margin:0 0 18px}.rblock:last-child{margin-bottom:0}
+  .rhead{font-weight:600;font-size:15px;margin-bottom:6px;color:var(--ink)}
+  .rblock ul{margin:0;padding-left:19px}
+  .rblock li{margin:5px 0;font-size:15px;color:var(--c600)}
+  .rblock li .lead{color:var(--ink);font-weight:500}
+  .rblock li .m{color:var(--ink);font-weight:600}
+  .grant{font-size:13px;color:var(--c400);margin-top:14px}
+  .oral{color:#d97a2c;font-weight:500;white-space:nowrap}
+
+  .pub{margin:0 0 17px}.pub:last-child{margin-bottom:0}
+  .ptitle{font-weight:600;font-size:15.5px;line-height:1.4;color:var(--ink)}
+  .pauthors{font-size:14.5px;color:var(--c600);margin-top:2px}
+  .pauthors .me{font-weight:700;color:var(--ink)}
+  .pvenue{display:flex;justify-content:space-between;align-items:baseline;gap:14px;font-size:14.5px;margin-top:2px;flex-wrap:wrap}
+  .pvenue .v{color:var(--link);font-weight:600}
+  .pvenue .v.j{color:var(--journal)}
+  .pvenue .plinks{margin-top:0;white-space:nowrap}
+  .plinks{font-size:14.5px;margin-top:3px;color:var(--c400)}
+  .plinks a,.plinks .bibtoggle{cursor:pointer;color:var(--link);margin:0}
+  .plinks .br{margin:0 4px}
+  .plinks .br{color:var(--c400)}
+  .bibbox{display:none;white-space:pre-wrap;background:var(--hover);border:1px solid var(--line);
+    border-radius:6px;padding:11px 13px;margin-top:8px;
+    font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;line-height:1.55;color:var(--c600);overflow-x:auto}
+
+  .patgroup{font-weight:600;font-size:14px;color:var(--c500);margin:0 0 11px}
+  .list .li{display:flex;justify-content:space-between;align-items:baseline;gap:18px;margin:0 0 9px}
+  .list .li:last-child{margin-bottom:0}
+  .list .li .t{flex:1 1 auto;color:var(--ink);font-size:15px}
+  .list .li .d{flex:0 0 auto;color:var(--c400);font-size:14px;white-space:nowrap;font-variant-numeric:tabular-nums}
+
+  footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--line);
+    font-size:13px;color:var(--c400);text-align:center}
+
   @media (max-width:560px){
-    header{flex-direction:column;gap:18px}
-    .photo{width:118px;height:118px}
-    .tl{flex-direction:column}
-    .tl .when{margin-bottom:2px;flex-basis:auto}
-    nav a{margin-right:12px}
+    header{flex-direction:column;gap:16px;align-items:flex-start}
+    .grp{flex-direction:column;gap:3px}
+    .grp .yr{flex-basis:auto}
+    .list .li{flex-direction:column;gap:1px}
+    nav a{margin-right:13px}
   }
 </style>
 </head>
@@ -91,287 +100,220 @@
          onerror="this.style.opacity=.35;this.alt='photo.jpg'">
     <div class="head-text">
       <h1>Ka Hyun Park</h1>
-      <p class="title">Ph.D. Student, Seoul National University</p>
-      <p class="links">
-        <a href="mailto:kahyun.park@snu.ac.kr">Email</a><span class="sep">·</span>
+      <p class="title">Ph.D. Student, Computer Science and Engineering, Seoul National University</p>
+      <div class="pills">
+        <a href="mailto:kahyun.park@snu.ac.kr">Email</a>
         <a href="https://scholar.google.com/citations?user=TD-6kicAAAAJ&hl=en">Google Scholar</a>
-      </p>
+        <a href="Ka_Hyun_Park_CV.pdf">CV</a>
+        <a href="https://github.com/kahyunpark">GitHub</a>
+        <a href="https://www.linkedin.com/in/ka-hyun-park-19bb371a6">LinkedIn</a>
+      </div>
     </div>
   </header>
 
   <nav>
     <a href="#about">About</a>
-    <a href="#research">Research</a>
     <a href="#publications">Publications</a>
     <a href="#patents">Patents</a>
+    <a href="#talks">Talks</a>
     <a href="#teaching">Teaching</a>
   </nav>
 
   <div class="intro">
     <p>I am a Ph.D. student in the
-      <a href="https://datalab.snu.ac.kr/en">Data Mining Lab (DataLab)</a> at
+      <a href="https://datalab.snu.ac.kr/en">Data Mining Lab</a> at
       <a href="https://en.snu.ac.kr">Seoul National University</a>, advised by
-      <a href="https://datalab.snu.ac.kr/~ukang">Prof. U Kang</a>. My research focuses on
-      <strong>machine learning under label uncertainty</strong> and
-      <strong>representation learning for graphs</strong> — spanning PU learning,
-      link (sign) prediction, graph classification, and domain adaptation across
-      graph, tensor, and speech data.</p>
+      <a href="https://datalab.snu.ac.kr/~ukang">Prof. U Kang</a>. My research interests
+      cover machine learning under label uncertainty and representation learning for graphs —
+      including PU learning, link (sign) prediction, graph classification, and domain adaptation
+      across graph, tensor, and speech data.</p>
   </div>
 
   <section id="about">
     <h2>About</h2>
-    <div class="tl">
-      <div class="when">Sep 2022 — Present</div>
-      <div class="what">
+    <div class="grp">
+      <div class="yr">2022 — Present</div>
+      <div class="content">
         <div class="org">Seoul National University</div>
-        <div class="role">Ph.D. Candidate in Computer Science and Engineering<br>
-          Data Mining Lab — Advisor: <a href="https://datalab.snu.ac.kr/~ukang">Prof. U Kang</a><br>
-          Expected graduation: Feb 2028</div>
+        <div class="role">Ph.D. Candidate in Computer Science and Engineering, Data Mining Lab<br>
+          Advisor: <a href="https://datalab.snu.ac.kr/~ukang">Prof. U Kang</a> · Expected Feb 2028</div>
       </div>
     </div>
-    <div class="tl">
-      <div class="when">Mar 2018 — Aug 2022</div>
-      <div class="what">
+    <div class="grp">
+      <div class="yr">2018 — 2022</div>
+      <div class="content">
         <div class="org">Ewha Womans University</div>
         <div class="role">B.S. in Computer Science and Engineering, Minor in Statistics<br>
-          GPA: 4.14 / 4.50 (Major 4.26 / 4.50)</div>
+          GPA 4.14 / 4.50 (Major 4.26 / 4.50)</div>
       </div>
     </div>
   </section>
 
-  <section id="research">
-    <h2>Research</h2>
-    <div class="rblock">
-      <div class="rhead">Learning under Label Uncertainty across Modalities</div>
-      <ul>
-        <li><strong>PU learning for graphs.</strong>
-          <span class="m">D-MVP</span> (Disentangled Multi-view Feature Propagation, KDD 2025)
-          for graph-based multi-positive unlabeled learning, achieving state-of-the-art accuracy on five real-world graph datasets.</li>
-        <li><strong>Speech recognition under label scarcity.</strong>
-          <span class="m">MOCA</span> (PAKDD 2024), <span class="m">DoReMe</span> (Interspeech 2024),
-          and <span class="m">MOCA-S</span> (PLOS ONE 2025) for semi-supervised and domain-aware speech learning.</li>
-      </ul>
-    </div>
-    <div class="rblock">
-      <div class="rhead">Representation Learning for Graphs</div>
-      <ul>
-        <li><strong>Link sign prediction.</strong>
-          <span class="m">PiGLeT</span> (ICDM 2025) relaxes the fully-observed-label assumption of prior signed GNNs,
-          reaching SOTA on seven real-world datasets.</li>
-        <li><strong>Link prediction.</strong>
-          <span class="m">PULL</span> (AAAI 2025) avoids treating unconnected edges as true negatives via PU learning,
-          reaching SOTA across seven datasets of varying scale.</li>
-        <li><strong>Graph classification.</strong>
-          <span class="m">TAG</span> (Two-staged contrastive curriculum learning, PLOS ONE) learns representations
-          at both node and graph levels.</li>
-      </ul>
-    </div>
-    <div class="rblock">
-      <div class="rhead">Domain Adaptation</div>
-      <ul>
-        <li><strong>Meta-learning on tensors.</strong>
-          <span class="m">Meta-P2</span> (Meta-PARAFAC2), a meta-learning-based domain adaptation method
-          for irregular tensor decomposition.</li>
-      </ul>
-    </div>
-    <p class="grant">Supported in part by <em>XVoice: Multi-Modal Voice Meta Learning</em>
-      (No. 2022-0-00641), funded by the Korea government (MSIT).</p>
-  </section>
 
   <section id="publications">
     <h2>Publications</h2>
-    <p class="pubnote">
-      <strong style="color:#333">Bold</strong> indicates my name; <code>*</code> denotes equal contribution.
-      Full list also available on
-      <a href="https://scholar.google.com/citations?user=TD-6kicAAAAJ&hl=en">Google Scholar</a>.
-    </p>
 
-    <div class="year">2026</div>
-    <div class="pub">
-      <div class="ptitle">Fast and Accurate Domain Adaptation for Irregular and Regular Tensor Decomposition</div>
-      <div class="pauthors">Junghun Kim, <span class="me">Ka Hyun Park</span>, Jun-Gi Jang, and U Kang</div>
-      <div class="pvenue">IEEE Transactions on Knowledge and Data Engineering (TKDE), 38(4), 2249–2261, 2026.</div>
-      <div class="plinks">[ <a href="papers/metap2-tkde.pdf">📄 paper</a> | <a onclick="tb(this)">🔖 bib</a> ]</div>
-      <pre class="bibbox">@article{journals/tkde/KimPJK26,
+    <div class="grp">
+      <div class="yr">2026</div>
+      <div class="content">
+        <div class="pub">
+          <div class="ptitle">Fast and Accurate Domain Adaptation for Irregular and Regular Tensor Decomposition</div>
+          <div class="pauthors">Junghun Kim, <span class="me">Ka Hyun Park</span>, Jun-Gi Jang, and U Kang</div>
+          <div class="pvenue"><span class="v j">IEEE TKDE 2026</span><span class="plinks"><a href="papers/metap2-tkde.pdf" title="paper">📚</a><span class="br">|</span><span class="bibtoggle" onclick="tb(this)" title="bibtex">📍</span></span></div>
+          <pre class="bibbox">@article{journals/tkde/KimPJK26,
   author    = {Junghun Kim and Ka Hyun Park and Jun{-}Gi Jang and U Kang},
   title     = {Fast and Accurate Domain Adaptation for Irregular and Regular Tensor Decomposition},
-  journal   = {{IEEE} Trans. Knowl. Data Eng.},
-  volume    = {38},
-  number    = {4},
-  pages     = {2249--2261},
-  year      = {2026}
+  journal   = {{IEEE} Trans. Knowl. Data Eng.}, volume = {38}, number = {4}, pages = {2249--2261}, year = {2026}
 }</pre>
+        </div>
+      </div>
     </div>
 
-    <div class="year">2025</div>
-    <div class="pub">
-      <div class="ptitle">PiGLeT: Probabilistic Message Passing for Semi-supervised Link Sign Prediction</div>
-      <div class="pauthors"><span class="me">Ka Hyun Park</span>, Junghun Kim, Jinhong Jung, and U Kang</div>
-      <div class="pvenue">IEEE International Conference on Data Mining (ICDM), 2025, Washington DC, USA. (Regular paper)</div>
-      <div class="plinks">[ <a href="papers/piglet.pdf">📄 paper</a> | <a href="https://github.com/snudatalab/PiGLeT">💻 code</a> | <a onclick="tb(this)">🔖 bib</a> ]</div>
-      <pre class="bibbox">@inproceedings{conf/icdm/ParkKJK25,
+    <div class="grp">
+      <div class="yr">2025</div>
+      <div class="content">
+        <div class="pub">
+          <div class="ptitle">PiGLeT: Probabilistic Message Passing for Semi-supervised Link Sign Prediction</div>
+          <div class="pauthors"><span class="me">Ka Hyun Park</span>, Junghun Kim, Jinhong Jung, and U Kang</div>
+          <div class="pvenue"><span class="v">IEEE ICDM 2025</span><span class="plinks"><a href="papers/piglet.pdf" title="paper">📚</a><span class="br">|</span><a href="https://github.com/snudatalab/PiGLeT" title="code">💻</a><span class="br">|</span><span class="bibtoggle" onclick="tb(this)" title="bibtex">📍</span></span></div>
+          <pre class="bibbox">@inproceedings{conf/icdm/ParkKJK25,
   author    = {Ka Hyun Park and Junghun Kim and Jinhong Jung and U Kang},
   title     = {PiGLeT: Probabilistic Message Passing for Semi-supervised Link Sign Prediction},
-  booktitle = {{IEEE} International Conference on Data Mining, {ICDM} 2025, Washington DC, USA, November 12-15, 2025},
-  publisher = {{IEEE}},
-  year      = {2025}
+  booktitle = {{IEEE} International Conference on Data Mining, {ICDM} 2025}, publisher = {{IEEE}}, year = {2025}
 }</pre>
-    </div>
-    <div class="pub">
-      <div class="ptitle">Accurate Semi-supervised Automatic Speech Recognition for Ordinary and Characterized Speeches via Multi-hypotheses-based Curriculum Learning</div>
-      <div class="pauthors"><span class="me">Ka Hyun Park</span><sup>*</sup>, Junghun Kim<sup>*</sup>, and U Kang</div>
-      <div class="pvenue">PLOS ONE, 2025.</div>
-      <div class="plinks">[ <a href="papers/moca-s.pdf">📄 paper</a> | <a href="https://github.com/snudatalab/MOCA">💻 code</a> | <a onclick="tb(this)">🔖 bib</a> ]</div>
-      <pre class="bibbox">@article{pone.0333915,
+        </div>
+        <div class="pub">
+          <div class="ptitle">Accurate Semi-supervised ASR for Ordinary and Characterized Speeches via Multi-hypotheses-based Curriculum Learning</div>
+          <div class="pauthors"><span class="me">Ka Hyun Park</span><sup>*</sup>, Junghun Kim<sup>*</sup>, and U Kang</div>
+          <div class="pvenue"><span class="v j">PLOS ONE 2025</span><span class="plinks"><a href="papers/moca-s.pdf" title="paper">📚</a><span class="br">|</span><a href="https://github.com/snudatalab/MOCA" title="code">💻</a><span class="br">|</span><span class="bibtoggle" onclick="tb(this)" title="bibtex">📍</span></span></div>
+          <pre class="bibbox">@article{pone.0333915,
   author    = {Park, Ka Hyun AND Kim, Junghun AND Kang, U.},
   title     = {Accurate Semi-supervised Automatic Speech Recognition for Ordinary and Characterized Speeches via Multi-hypotheses-based Curriculum Learning},
-  journal   = {PLOS ONE},
-  publisher = {Public Library of Science},
-  year      = {2025},
-  doi       = {10.1371/journal.pone.0333915},
-  url       = {https://doi.org/10.1371/journal.pone.0333915}
+  journal   = {PLOS ONE}, publisher = {Public Library of Science}, year = {2025}, doi = {10.1371/journal.pone.0333915}
 }</pre>
-    </div>
-    <div class="pub">
-      <div class="ptitle">Accurate Graph-based Multi-Positive Unlabeled Learning via Disentangled Multi-view Feature Propagation</div>
-      <div class="pauthors">Junghun Kim, Hoyoung Yoon, <span class="me">Ka Hyun Park</span>, and U Kang</div>
-      <div class="pvenue">ACM SIGKDD Conference on Knowledge Discovery and Data Mining (KDD), 2025, Toronto, Canada.</div>
-      <div class="plinks">[ <a href="papers/dmvp.pdf">📄 paper</a> | <a href="https://github.com/snudatalab/D-MVP">💻 code</a> | <a onclick="tb(this)">🔖 bib</a> ]</div>
-      <pre class="bibbox">@inproceedings{conf/kdd/KimYPK25,
+        </div>
+        <div class="pub">
+          <div class="ptitle">Accurate Graph-based Multi-Positive Unlabeled Learning via Disentangled Multi-view Feature Propagation</div>
+          <div class="pauthors">Junghun Kim, Hoyoung Yoon, <span class="me">Ka Hyun Park</span>, and U Kang</div>
+          <div class="pvenue"><span class="v">KDD 2025</span><span class="plinks"><a href="papers/dmvp.pdf" title="paper">📚</a><span class="br">|</span><a href="https://github.com/snudatalab/D-MVP" title="code">💻</a><span class="br">|</span><span class="bibtoggle" onclick="tb(this)" title="bibtex">📍</span></span></div>
+          <pre class="bibbox">@inproceedings{conf/kdd/KimYPK25,
   author    = {Junghun Kim and Hoyoung Yoon and Ka Hyun Park and U Kang},
   title     = {Accurate Graph-based Multi-Positive Unlabeled Learning via Disentangled Multi-view Feature Propagation},
-  booktitle = {Proceedings of the 31st {ACM} {SIGKDD} Conference on Knowledge Discovery and Data Mining, V.2, {KDD} 2025, Toronto ON, Canada, August 3-7, 2025},
-  pages     = {1149--1159},
-  publisher = {{ACM}},
-  year      = {2025}
+  booktitle = {Proceedings of the 31st {ACM} {SIGKDD} Conference, {KDD} 2025}, pages = {1149--1159}, publisher = {{ACM}}, year = {2025}
 }</pre>
-    </div>
-    <div class="pub">
-      <div class="ptitle">Accurate Link Prediction for Edge-Incomplete Graphs via PU Learning</div>
-      <div class="pauthors">Junghun Kim, <span class="me">Ka Hyun Park</span>, Hoyoung Yoon, and U Kang</div>
-      <div class="pvenue">AAAI Conference on Artificial Intelligence (AAAI), 2025, Philadelphia, USA. (Oral presentation)</div>
-      <div class="plinks">[ <a href="papers/pull.pdf">📄 paper</a> | <a href="https://github.com/snudatalab/PULL">💻 code</a> | <a onclick="tb(this)">🔖 bib</a> ]</div>
-      <pre class="bibbox">@inproceedings{conf/aaai/KimPYK25,
+        </div>
+        <div class="pub">
+          <div class="ptitle">Accurate Link Prediction for Edge-Incomplete Graphs via PU Learning</div>
+          <div class="pauthors">Junghun Kim, <span class="me">Ka Hyun Park</span>, Hoyoung Yoon, and U Kang</div>
+          <div class="pvenue"><span class="v">AAAI 2025 <span class="oral">★ Oral presentation</span></span><span class="plinks"><a href="papers/pull.pdf" title="paper">📚</a><span class="br">|</span><a href="https://github.com/snudatalab/PULL" title="code">💻</a><span class="br">|</span><span class="bibtoggle" onclick="tb(this)" title="bibtex">📍</span></span></div>
+          <pre class="bibbox">@inproceedings{conf/aaai/KimPYK25,
   author    = {Junghun Kim and Ka Hyun Park and Hoyoung Yoon and U Kang},
   title     = {Accurate Link Prediction for Edge-Incomplete Graphs via {PU} Learning},
-  booktitle = {AAAI-25, February 25 - March 4, 2025, Philadelphia, PA, {USA}},
-  pages     = {17877--17885},
-  publisher = {{AAAI} Press},
-  year      = {2025}
+  booktitle = {AAAI-25}, pages = {17877--17885}, publisher = {{AAAI} Press}, year = {2025}
 }</pre>
+        </div>
+      </div>
     </div>
 
-    <div class="year">2024</div>
-    <div class="pub">
-      <div class="ptitle">Domain-Aware Data Selection for Speech Classification via Meta-Reweighting</div>
-      <div class="pauthors">Junghun Kim, <span class="me">Ka Hyun Park</span>, Hoyoung Yoon, and U Kang</div>
-      <div class="pvenue">Interspeech, 2024, Kos Island, Greece.</div>
-      <div class="plinks">[ <a href="papers/doreme.pdf">📄 paper</a> | <a href="https://github.com/snudatalab/DoReMe">💻 code</a> | <a onclick="tb(this)">🔖 bib</a> ]</div>
-      <pre class="bibbox">@inproceedings{interspeech/KimPYK24,
+    <div class="grp">
+      <div class="yr">2024</div>
+      <div class="content">
+        <div class="pub">
+          <div class="ptitle">Domain-Aware Data Selection for Speech Classification via Meta-Reweighting</div>
+          <div class="pauthors">Junghun Kim, <span class="me">Ka Hyun Park</span>, Hoyoung Yoon, and U Kang</div>
+          <div class="pvenue"><span class="v">Interspeech 2024</span><span class="plinks"><a href="papers/doreme.pdf" title="paper">📚</a><span class="br">|</span><a href="https://github.com/snudatalab/DoReMe" title="code">💻</a><span class="br">|</span><span class="bibtoggle" onclick="tb(this)" title="bibtex">📍</span></span></div>
+          <pre class="bibbox">@inproceedings{interspeech/KimPYK24,
   author    = {Junghun Kim and Ka Hyun Park and Hoyoung Yoon and U Kang},
-  editor    = {Itshak Lapidot and Sharon Gannot},
   title     = {Domain-Aware Data Selection for Speech Classification via Meta-Reweighting},
-  booktitle = {25th Annual Conference of the International Speech Communication Association, Interspeech 2024, Kos, Greece, September 1-5, 2024},
-  publisher = {{ISCA}},
-  year      = {2024}
+  booktitle = {Interspeech 2024}, publisher = {{ISCA}}, year = {2024}
 }</pre>
-    </div>
-    <div class="pub">
-      <div class="ptitle">Fast and Accurate Domain Adaptation for Irregular Tensor Decomposition</div>
-      <div class="pauthors">Junghun Kim, <span class="me">Ka Hyun Park</span>, Jun-Gi Jang, and U Kang</div>
-      <div class="pvenue">ACM SIGKDD Conference on Knowledge Discovery and Data Mining (KDD), 2024, Barcelona, Spain.</div>
-      <div class="plinks">[ <a href="papers/metap2-kdd24.pdf">📄 paper</a> | <a onclick="tb(this)">🔖 bib</a> ]</div>
-      <pre class="bibbox">@inproceedings{conf/kdd/KimPJK24,
+        </div>
+        <div class="pub">
+          <div class="ptitle">Fast and Accurate Domain Adaptation for Irregular Tensor Decomposition</div>
+          <div class="pauthors">Junghun Kim, <span class="me">Ka Hyun Park</span>, Jun-Gi Jang, and U Kang</div>
+          <div class="pvenue"><span class="v">KDD 2024</span><span class="plinks"><a href="papers/metap2-kdd24.pdf" title="paper">📚</a><span class="br">|</span><span class="bibtoggle" onclick="tb(this)" title="bibtex">📍</span></span></div>
+          <pre class="bibbox">@inproceedings{conf/kdd/KimPJK24,
   author    = {Junghun Kim and Ka Hyun Park and Jun{-}Gi Jang and U Kang},
-  editor    = {Ricardo Baeza{-}Yates and Francesco Bonchi},
   title     = {Fast and Accurate Domain Adaptation for Irregular Tensor Decomposition},
-  booktitle = {Proceedings of the 30th {ACM} {SIGKDD} Conference on Knowledge Discovery and Data Mining, {KDD} 2024, Barcelona, Spain, August 25-29, 2024},
-  pages     = {1383--1394},
-  publisher = {{ACM}},
-  year      = {2024}
+  booktitle = {Proceedings of the 30th {ACM} {SIGKDD} Conference, {KDD} 2024}, pages = {1383--1394}, publisher = {{ACM}}, year = {2024}
 }</pre>
-    </div>
-    <div class="pub">
-      <div class="ptitle">Accurate Semi-supervised Automatic Speech Recognition via Multi-hypotheses-based Curriculum Learning</div>
-      <div class="pauthors">Junghun Kim<sup>*</sup>, <span class="me">Ka Hyun Park</span><sup>*</sup>, and U Kang</div>
-      <div class="pvenue">Pacific-Asia Conference on Knowledge Discovery and Data Mining (PAKDD), 2024, Taipei, Taiwan. (Oral presentation)</div>
-      <div class="plinks">[ <a href="papers/moca.pdf">📄 paper</a> | <a href="https://github.com/asrbest2023/MOCA">💻 code</a> | <a onclick="tb(this)">🔖 bib</a> ]</div>
-      <pre class="bibbox">@inproceedings{conf/pakdd/KimPK24,
+        </div>
+        <div class="pub">
+          <div class="ptitle">Accurate Semi-supervised ASR via Multi-hypotheses-based Curriculum Learning</div>
+          <div class="pauthors">Junghun Kim<sup>*</sup>, <span class="me">Ka Hyun Park</span><sup>*</sup>, and U Kang</div>
+          <div class="pvenue"><span class="v">PAKDD 2024 <span class="oral">★ Oral presentation</span></span><span class="plinks"><a href="papers/moca.pdf" title="paper">📚</a><span class="br">|</span><a href="https://github.com/asrbest2023/MOCA" title="code">💻</a><span class="br">|</span><span class="bibtoggle" onclick="tb(this)" title="bibtex">📍</span></span></div>
+          <pre class="bibbox">@inproceedings{conf/pakdd/KimPK24,
   author    = {Junghun Kim and Ka Hyun Park and U Kang},
   title     = {Accurate Semi-supervised Automatic Speech Recognition via Multi-hypotheses-Based Curriculum Learning},
-  booktitle = {Advances in Knowledge Discovery and Data Mining - 28th Pacific-Asia Conference on Knowledge Discovery and Data Mining, {PAKDD} 2024, Taipei, Taiwan, May 7-10, 2024, Proceedings, Part {V}},
-  series    = {Lecture Notes in Computer Science},
-  volume    = {14649},
-  pages     = {40--52},
-  publisher = {Springer},
-  year      = {2024}
+  booktitle = {PAKDD 2024}, series = {LNCS}, volume = {14649}, pages = {40--52}, publisher = {Springer}, year = {2024}
 }</pre>
+        </div>
+      </div>
     </div>
 
-    <div class="year">2023</div>
-    <div class="pub">
-      <div class="ptitle">Accurate Graph Classification via Two-staged Contrastive Curriculum Learning</div>
-      <div class="pauthors">Sooyeon Shim, Junghun Kim, <span class="me">Ka Hyun Park</span>, and U Kang</div>
-      <div class="pvenue">PLOS ONE, 2023.</div>
-      <div class="plinks">[ <a href="papers/tag.pdf">📄 paper</a> | <a href="https://github.com/snudatalab/TAG">💻 code</a> | <a onclick="tb(this)">🔖 bib</a> ]</div>
-      <pre class="bibbox">@article{pone.0296171,
+    <div class="grp">
+      <div class="yr">2023</div>
+      <div class="content">
+        <div class="pub">
+          <div class="ptitle">Accurate Graph Classification via Two-staged Contrastive Curriculum Learning</div>
+          <div class="pauthors">Sooyeon Shim, Junghun Kim, <span class="me">Ka Hyun Park</span>, and U Kang</div>
+          <div class="pvenue"><span class="v j">PLOS ONE 2023</span><span class="plinks"><a href="papers/tag.pdf" title="paper">📚</a><span class="br">|</span><a href="https://github.com/snudatalab/TAG" title="code">💻</a><span class="br">|</span><span class="bibtoggle" onclick="tb(this)" title="bibtex">📍</span></span></div>
+          <pre class="bibbox">@article{pone.0296171,
   author    = {Shim, Sooyeon AND Kim, Junghun AND Park, Kahyun AND Kang, U.},
   title     = {Accurate graph classification via two-staged contrastive curriculum learning},
-  journal   = {PLOS ONE},
-  publisher = {Public Library of Science},
-  volume    = {19},
-  number    = {1},
-  pages     = {1--20},
-  month     = {01},
-  year      = {2024}
+  journal   = {PLOS ONE}, publisher = {Public Library of Science}, volume = {19}, number = {1}, pages = {1--20}, year = {2024}
 }</pre>
+        </div>
+      </div>
     </div>
+
   </section>
 
   <section id="patents">
     <h2>Patents</h2>
     <div class="patgroup">Domestic (Korea)</div>
-    <div class="pat"><div class="pt">Method and Apparatus for Semi-Supervised Link Sign Prediction via Probabilistic Message Passing</div><div class="pd">Filed 10 Aug 2025.</div></div>
-    <div class="pat"><div class="pt">Method and Apparatus for Disentangled Multi-view Feature Propagation for Multi-Positive Unlabeled Node Learning</div><div class="pd">Filed 21 Jul 2025.</div></div>
-    <div class="pat"><div class="pt">Speech Classification Apparatus and Method via Meta-Reweighting</div><div class="pd">Filed 22 Aug 2024.</div></div>
-    <div class="pat"><div class="pt">Link Prediction Method and Apparatus Using Accurate Edge Prediction Model Based on Positive-Unlabeled Data Learning</div><div class="pd">Filed 23 Jan 2024, registered 17 Mar 2025.</div></div>
-    <div class="pat"><div class="pt">Tensor Decomposition Apparatus and Method for Domain Adaptation</div><div class="pd">Filed 23 Jan 2024, registered 20 Feb 2025.</div></div>
-    <div class="pat"><div class="pt">Method and Apparatus for Semi-Supervised Automatic Speech Recognition Using Multi-Hypotheses-Based Curriculum Learning</div><div class="pd">Filed 26 Dec 2023.</div></div>
-    <div class="pat"><div class="pt">Method for Graph Classification via Contrastive Curriculum Learning and Graph Classification Apparatus for Performing the Same</div><div class="pd">Filed 17 Feb 2023.</div></div>
-    <div class="patgroup">International</div>
-    <div class="pat"><div class="pt">(JP) Edge Prediction Method and Apparatus Using Accurate Edge Prediction Model Based on Positive-Unlabeled Data Learning</div><div class="pd">Filed 16 Jul 2024.</div></div>
-    <div class="pat"><div class="pt">(EU) Link Prediction Method and Apparatus Using Accurate Link Prediction Model Based on Positive-Unlabeled Data Learning</div><div class="pd">Filed 5 Jul 2024.</div></div>
-    <div class="pat"><div class="pt">(US) Link Prediction Method and Apparatus Using Accurate Link Prediction Model Based on Positive-Unlabeled Data Learning</div><div class="pd">Filed 27 Jun 2024.</div></div>
+    <div class="list">
+      <div class="li"><div class="t">Semi-Supervised Link Sign Prediction via Probabilistic Message Passing</div><div class="d">Filed Aug 2025</div></div>
+      <div class="li"><div class="t">Disentangled Multi-view Feature Propagation for Multi-Positive Unlabeled Node Learning</div><div class="d">Filed Jul 2025</div></div>
+      <div class="li"><div class="t">Speech Classification via Meta-Reweighting</div><div class="d">Filed Aug 2024</div></div>
+      <div class="li"><div class="t">Link Prediction via PU-Data Learning</div><div class="d">Filed Jan 2024 · Reg. Mar 2025</div></div>
+      <div class="li"><div class="t">Tensor Decomposition for Domain Adaptation</div><div class="d">Filed Jan 2024 · Reg. Feb 2025</div></div>
+      <div class="li"><div class="t">Semi-Supervised ASR via Multi-Hypotheses Curriculum Learning</div><div class="d">Filed Dec 2023</div></div>
+      <div class="li"><div class="t">Graph Classification via Contrastive Curriculum Learning</div><div class="d">Filed Feb 2023</div></div>
+    </div>
+    <div class="patgroup" style="margin-top:18px;padding-top:18px;border-top:1px solid var(--line)">International</div>
+    <div class="list">
+      <div class="li"><div class="t">(JP) Edge Prediction via PU-Data Learning</div><div class="d">Filed Jul 2024</div></div>
+      <div class="li"><div class="t">(EU) Link Prediction via PU-Data Learning</div><div class="d">Filed Jul 2024</div></div>
+      <div class="li"><div class="t">(US) Link Prediction via PU-Data Learning</div><div class="d">Filed Jun 2024</div></div>
+    </div>
   </section>
 
   <section id="talks">
     <h2>Talks</h2>
-    <div class="simple">
-      <div class="st">Accurate Semi-supervised Automatic Speech Recognition for Ordinary and Characterized Speeches via Multi-hypotheses-based Curriculum Learning</div>
-      <div class="sd">KSC 2025, Top Conference Session — Dec 2025</div>
+    <div class="list">
+      <div class="li"><div class="t">PiGLeT: Probabilistic Message Passing for Semi-supervised Link Sign Prediction — KSC Top Conference Session</div><div class="d">Dec 2025</div></div>
     </div>
   </section>
 
   <section id="teaching">
     <h2>Teaching</h2>
-    <p class="pubnote" style="margin-top:-6px">Teaching Assistant</p>
-    <div class="simple"><div class="st">Data Mining</div><div class="sd">K-MOOC — Mar–May 2026</div></div>
-    <div class="simple"><div class="st">Data Structure (M1522.000900)</div><div class="sd">Seoul National University — Spring 2024</div></div>
-    <div class="simple"><div class="st">DS<sup>2</sup> Deep Learning</div><div class="sd">Samsung — Sep 2023</div></div>
-    <div class="simple"><div class="st">Data Structure (M1522.000900)</div><div class="sd">Seoul National University — Spring 2023</div></div>
-    <div class="simple"><div class="st">DS<sup>2</sup> Deep Learning</div><div class="sd">Samsung — Mar 2023</div></div>
+    <div class="list">
+      <div class="li"><div class="t">Data Mining — K-MOOC</div><div class="d">2026</div></div>
+      <div class="li"><div class="t">Data Structure (M1522.000900) — SNU</div><div class="d">2024S</div></div>
+      <div class="li"><div class="t">DS² Deep Learning — Samsung</div><div class="d">2023</div></div>
+      <div class="li"><div class="t">Data Structure (M1522.000900) — SNU</div><div class="d">2023S</div></div>
+      <div class="li"><div class="t">DS² Deep Learning — Samsung</div><div class="d">2023</div></div>
+    </div>
   </section>
 
-  <footer>
-    Ka Hyun Park · SNU Data Mining Lab · Last updated June 2026
-  </footer>
+  <footer>Ka Hyun Park · SNU Data Mining Lab · Updated June 2026</footer>
 
 </div>
 <script>
   function tb(a){
     var box = a.closest('.pub').querySelector('.bibbox');
     box.style.display = (box.style.display === 'block') ? 'none' : 'block';
-    return false;
   }
 </script>
 </body>
